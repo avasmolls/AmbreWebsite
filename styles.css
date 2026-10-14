@@ -186,3 +186,161 @@ h1, h2, h3, h4 {
 .hero-indicator .dot.active{
     background:#fff
 }
+
+/* Collection Section */
+.collection{
+/* meant to mimic a marble texture, but not too busy */
+  background:
+    linear-gradient(118deg,transparent 0 31%,rgba(176,142,100,.16) 31.15%,rgba(176,142,100,.05) 31.7%,transparent 32.4% 100%),
+    linear-gradient(122deg,transparent 0 58%,rgba(176,142,100,.12) 58.1%,transparent 58.7% 100%),
+    linear-gradient(104deg,transparent 0 76%,rgba(176,142,100,.14) 76.1%,rgba(176,142,100,.04) 76.8%,transparent 77.6% 100%),
+    linear-gradient(131deg,transparent 0 12%,rgba(176,142,100,.09) 12.1%,transparent 12.6% 100%),
+    radial-gradient(ellipse at 18% 15%,rgba(255,255,255,.75),transparent 55%),
+    radial-gradient(ellipse at 88% 85%,rgba(233,213,182,.55),transparent 55%),
+    linear-gradient(160deg,#FBF5EA,#F3E7D3);
+}
+
+.link-underline-ambre{
+    font-size:.68rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--espresso);
+    border-bottom:1px solid var(--espresso);
+    padding-bottom:3px;
+    white-space:nowrap
+}
+ 
+.product-card{
+    background:var(--cream-2);
+    border:1px solid var(--line);
+    overflow:hidden;
+    transition:box-shadow .3s,transform .3s
+}
+
+.product-card:hover{
+    box-shadow:0 14px 30px rgba(90,51,24,.15);
+    transform:translateY(-3px)
+}
+
+.product-img{
+    width:100%;
+    aspect-ratio:16/10;
+    object-fit:cover;
+    /*background:var(--line);*/
+}
+
+.product-name{
+    font-size:1.3rem;
+    margin:0
+}
+
+.price{
+    font-weight:600;
+    font-size:.95rem
+}
+
+.notes{
+    font-size:.82rem;
+    color:var(--muted);
+    margin:.15rem 0 .4rem
+}
+
+.stars{
+    color:var(--amber);
+    font-size:.72rem
+}
+
+.stars i{
+    margin-right:1px
+}
+
+.stars span{
+    color:var(--muted);margin-left:4px
+}
+
+.btn-ambre{
+    background:var(--espresso);
+    color:#fff;
+    border-radius:0;
+    font-size:.68rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:.8rem
+}
+.btn-ambre:hover,.btn-ambre:focus{
+    background:var(--brown);
+    color:#fff
+}
+
+/* Scent Quiz Section */
+.quiz-banner{
+  min-height:380px;
+  padding:3rem 0;
+  background-image: url('images/quiz-bg.jpg');
+}
+
+.btn-quiz{
+    border-radius:0;
+    font-size:.7rem;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:.9rem 1.5rem;
+    color:var(--espresso)
+}
+
+/* Values Section */
+.values{
+    background:var(--cream-2);
+    border-top:1px solid var(--line)
+}
+
+.value{
+    display:flex;
+    gap:1rem;
+    align-items:center;
+    position:relative
+}
+
+.value i{
+    font-size:2.4rem;
+    color:var(--brown);
+    line-height:1
+}
+
+.value h4{
+    font-family:var(--sans);
+    font-size:.7rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-weight:600;
+    margin:0 0 .2rem
+}
+
+.value p{
+    margin:0;
+    font-size:.82rem;
+    color:var(--muted)
+}
+
+@media(min-width:992px){
+  .value:not(:last-child)::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:10%;
+    height:80%;
+    width:1px;
+    background:var(--line);}
+}
+ 
+@media(max-width:991px){
+  .hero{
+    background-position:70% center
+    }
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+ 
+ 
