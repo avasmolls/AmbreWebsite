@@ -35,3 +35,18 @@ h1, h2, h3, h4 {
 .section-pad {
     padding: 3.5rem 0 4rem;
 }
+
+.eyebrow {
+    font-family: var(--sans);
+    font-size: .7rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size : .7rem;
+    letter-spacing: .35em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
