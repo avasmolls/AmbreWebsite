@@ -38,7 +38,34 @@
         </div>
     </nav>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <header class="page-hero"><div class="container">
+    <p class="eyebrow">Shop</p><h1>All Fragrances</h1><p class="lead-ambre">Four eau de parfums, 50 ml each. Filter by scent family.</p>
+    </div></header>
+    
+    <section class="section-pad pt-4"><div class="container">
+    <div class="chips mb-4" id="chips">
+        <button class="chip active" data-f="all">All</button>
+        <button class="chip" data-f="warm">Warm</button>
+        <button class="chip" data-f="dark">Dark</button>
+        <button class="chip" data-f="floral">Floral</button>
+        <button class="chip" data-f="fresh">Fresh</button>
+    </div>
+    <div class="row g-3 row-cols-1 row-cols-sm-2 row-cols-lg-4" id="grid"></div>
+    </div></section>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const grid = document.getElementById('grid');
+    const chips = document.querySelectorAll('.chip');
+    function render(filters) {
+        const list = filters.includes('all') ? PRODUCTS : PRODUCTS.filter(p => filters.includes(p.tag));
+        grid.innerHTML = list.map(productCard).join('');
+        chips.forEach(c => c.classList.toggle('active', filters.length === 1 && c.dataset.f === filters[0]));
+    }
+    chips.forEach(c => c.addEventListener('click', () => render([c.dataset.f])));
+    // supports links like shop.html?tag=warm,dark (used by the Collections page)
+    const tag = new URLSearchParams(location.search).get('tag');
+    render(tag ? tag.split(',') : ['all']);
+    </script>
 </body>
 </html>

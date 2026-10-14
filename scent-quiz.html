@@ -37,8 +37,56 @@
             </div>
         </div>
     </nav>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <header class="page-hero"><div class="container">
+    <p class="eyebrow">Scent Quiz</p><h1>Find your signature scent</h1><p class="lead-ambre">Three quick questions. One perfect match.</p>
+    </div></header>
+    
+    <section class="section-pad pt-4"><div class="container" style="max-width:720px">
+    <div class="quiz-card" id="quizCard">
+        <div class="quiz-progress"><span id="bar"></span></div>
+        <p class="eyebrow mt-4" id="step"></p>
+        <h2 class="section-title mb-4" id="question"></h2>
+        <div class="d-grid gap-2" id="options"></div>
+    </div>
+    <div class="quiz-card text-center d-none" id="resultCard">
+        <p class="eyebrow">Your match</p>
+        <h2 class="section-title mb-3" id="rName"></h2>
+        <img id="rImg" class="product-img mb-3" alt="" style="max-width:420px">
+        <p class="notes" id="rNotes"></p>
+        <div class="d-flex gap-2 justify-content-center mt-3 flex-wrap">
+        <button class="btn btn-ambre px-4 add-to-cart">Add to cart</button>
+        <a href="shop.html" class="btn btn-outline-dark rounded-0 px-4">Browse all</a>
+        <button class="btn btn-link text-dark" id="retake">Retake quiz</button>
+        </div>
+    </div>
+    </div></section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+    const Q = [
+        { q: 'Pick a moment you would love to wear it.', a: [['Sunset on a terrace','golden-veil'],['A candlelit dinner','velvet-nuit'],['A walk through a garden','ivory-bloom'],['A swim before lunch','soleil-dor']] },
+        { q: 'Which description sounds most like you?', a: [['Warm and magnetic','golden-veil'],['Bold and mysterious','velvet-nuit'],['Soft and romantic','ivory-bloom'],['Bright and energetic','soleil-dor']] },
+        { q: 'Choose a place to escape to.', a: [['Ancient stone ruins','golden-veil'],['A velvet-lined bar','velvet-nuit'],['A blooming courtyard','ivory-bloom'],['An orange grove','soleil-dor']] }
+    ];
+    let i = 0, score = {};
+    const $ = id => document.getElementById(id);
+    function show() {
+        $('step').textContent = `Question ${i + 1} of ${Q.length}`;
+        $('question').textContent = Q[i].q;
+        $('bar').style.width = (i / Q.length * 100) + '%';
+        $('options').innerHTML = Q[i].a.map(([t, id]) => `<button class="quiz-opt" data-id="${id}">${t}</button>`).join('');
+    }
+    $('options').addEventListener('click', e => {
+        const b = e.target.closest('.quiz-opt'); if (!b) return;
+        score[b.dataset.id] = (score[b.dataset.id] || 0) + 1;
+        if (++i < Q.length) return show();
+        const win = Object.keys(score).sort((a, b) => score[b] - score[a])[0];
+        const p = PRODUCTS.find(x => x.id === win);
+        $('rName').textContent = p.name; $('rImg').src = p.img; $('rNotes').textContent = p.notes + ' · $' + p.price;
+        $('quizCard').classList.add('d-none'); $('resultCard').classList.remove('d-none');
+    });
+    $('retake').addEventListener('click', () => { i = 0; score = {}; $('resultCard').classList.add('d-none'); $('quizCard').classList.remove('d-none'); show(); });
+    show();
+    </script>
 </body>
 </html>
