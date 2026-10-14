@@ -15,9 +15,23 @@
     --sans: "Inter", system-ui, sans-serif;
 }
 
+/* Body Global Styles */
 body {
     font-family:var(--sans);
     color: var(--esspresso);
     background: var(--cream);
-    webkid-font-smoothing: antialiased;
+    -webkid-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+    font-family: var(--serif);
+    font-weight: 500;
+}
+
+.text-muted-ambre {
+    color: var(--muted);
+}
+
+.section-pad {
+    padding: 3.5rem 0 4rem;
 }
