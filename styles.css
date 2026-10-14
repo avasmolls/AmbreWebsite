@@ -1,0 +1,23 @@
+/* Design by: Ava Smolley */
+
+/* Global Styles */
+:root {
+    /* Colors */
+    --cream: #F7EEDF;
+    --cream-2: #FBF5EA;
+    --espresso: #3A1F0D;
+    --brown: #5A3318;
+    --amber: #C98A2B;
+    --line: #E6D6BC;
+    --muted: #7A6350;
+    /* Fonts */
+    --serif: "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", system-ui, sans-serif;
+}
+
+body {
+    font-family:var(--sans);
+    color: var(--esspresso);
+    background: var(--cream);
+    webkid-font-smoothing: antialiased;
+}
