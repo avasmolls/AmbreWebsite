@@ -50,3 +50,58 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     margin-bottom: 1rem;
 }
+
+/* Navbar */
+.ambre-nav {
+    background: var(--cream);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    padding:.9rem 0
+}
+.ambre-logo {
+    font-family:var(--serif);
+    font-size:1.9rem;
+    letter-spacing:.18em;
+    color:var(--espresso);
+}
+
+.ambre-nav .nav-link {
+    color:var(--espresso);
+    font-family:var(--serif);
+    font-size:1.05rem;
+    position:relative;
+}
+.ambre-nav .nav-link::after {
+    content:"";
+    position:absolute;
+   left:.5rem;
+   right:.5rem;
+   bottom:.2rem;
+   height:1px;
+   background:var(--amber);
+   transform:scaleX(0);
+   transition:transform .25s;
+}
+
+.ambre-nav .nav-link:hover::after {
+    transform:scaleX(1);
+}
+
+.nav-icons a {
+    color: var(--espresso);
+    font-size: 1.15rem;
+}
+
+.cart-badge {
+    position:absolute;
+    top:-8px;
+    right:-10px;
+    background:var(--espresso);
+    color:#fff;
+    font-size:.6rem;
+    width:16px;
+    height:16px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+}
