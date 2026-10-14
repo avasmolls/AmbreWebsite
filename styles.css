@@ -110,9 +110,6 @@ h1, h2, h3, h4 {
 .hero {
     min-height: min(78vh, 620px);
     background-image: url('images/hero.jpg');
-        /*linear-gradient(90deg,rgba(40,20,5,.65) 0%,rgba(40,20,5,.25) 45%,rgba(40,20,5,0) 70%),
-        url("images/hero.jpg") center/cover no-repeat,
-        radial-gradient(ellipse at 70% 55%,#F6C873 0%,#E0A04A 38%,#B8742E 75%,#8A5222 100%);*/
     position: relative;
 }
 
