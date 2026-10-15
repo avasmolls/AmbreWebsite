@@ -6,7 +6,7 @@ I also played around with AI to create mockups for me to view, as if it was a cl
 
 
 # index.html
-The home page. Featuring a hero with the "signature" fragrance. There is a clean navigation bar at top with quick links to other products to view and add to cart.
+The home page. Featuring a hero with the "signature" fragrance. There is a clean navigation bar at the top with quick links to other products to view and add to cart. During this part, I used Claud to guide me through any errors I was having, such as text not being where I intended, and to generate the marble-like background. I first created a mockup in Figma, so I had a guide to make the html/css from.
 <img width="1470" height="563" alt="Screenshot 2026-10-14 at 1 17 00 PM" src="https://github.com/user-attachments/assets/8354c941-670e-4309-97bc-1c2eb4aea843" />
 <img width="1470" height="531" alt="Screenshot 2026-10-14 at 1 17 28 PM" src="https://github.com/user-attachments/assets/8c6e254c-7a77-4e19-9c6f-56e56653dc16" />
 
