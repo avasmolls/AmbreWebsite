@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,86 +8,201 @@
 
     <!-- Bootstrap + Bootstrap Icons + Google Fonts -->
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
 </head>
+
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg ambre-nav sticky-top">
         <div class="container">
             <a class="navbar-brand ambre-logo" href="index.html">AMBRÉ</a>
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="Toggle navigation">
-            <i class="bi bi-list fs-2"></i>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+                aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2"></i>
             </button>
             <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav mx-auto gap-lg-4">
-                <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
-                <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
-                <li class="nav-item"><a class="nav-link" href="scent-quiz.html">Scent Quiz</a></li>
-            </ul>
-            <div class="nav-icons d-flex align-items-center gap-3">
-                <a href="shop.html" aria-label="Search"><i class="bi bi-search"></i></a>
-                <a href="#" aria-label="Account"><i class="bi bi-person"></i></a>
-                <a href="#" class="position-relative" aria-label="Cart">
-                <i class="bi bi-bag"></i>
-                <span id="cartCount" class="cart-badge">0</span>
-                </a>
-            </div>
+                <ul class="navbar-nav mx-auto gap-lg-4">
+                    <li class="nav-item"><a class="nav-link" href="shop.html">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="scent-quiz.html">Scent Quiz</a></li>
+                </ul>
+                <div class="nav-icons d-flex align-items-center gap-3">
+                    <a href="shop.html" aria-label="Search"><i class="bi bi-search"></i></a>
+                    <a href="#" aria-label="Account"><i class="bi bi-person"></i></a>
+                    <a href="#" class="position-relative" aria-label="Cart">
+                        <i class="bi bi-bag"></i>
+                        <span id="cartCount" class="cart-badge">0</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="page-hero"><div class="container">
-    <p class="eyebrow">Scent Quiz</p><h1>Find your signature scent</h1><p class="lead-ambre">Three quick questions. One perfect match.</p>
-    </div></header>
-    
-    <section class="section-pad pt-4"><div class="container" style="max-width:720px">
-    <div class="quiz-card" id="quizCard">
-        <div class="quiz-progress"><span id="bar"></span></div>
-        <p class="eyebrow mt-4" id="step"></p>
-        <h2 class="section-title mb-4" id="question"></h2>
-        <div class="d-grid gap-2" id="options"></div>
-    </div>
-    <div class="quiz-card text-center d-none" id="resultCard">
-        <p class="eyebrow">Your match</p>
-        <h2 class="section-title mb-3" id="rName"></h2>
-        <img id="rImg" class="product-img mb-3" alt="" style="max-width:420px">
-        <p class="notes" id="rNotes"></p>
-        <div class="d-flex gap-2 justify-content-center mt-3 flex-wrap">
-        <button class="btn btn-ambre px-4 add-to-cart">Add to cart</button>
-        <a href="shop.html" class="btn btn-outline-dark rounded-0 px-4">Browse all</a>
-        <button class="btn btn-link text-dark" id="retake">Retake quiz</button>
+    <!-- Hero Section -->
+    <header class="page-hero">
+        <div class="container">
+            <p class="eyebrow">Scent Quiz</p>
+            <h1>Find your signature scent</h1>
+            <p class="lead-ambre">Five quick questions. One perfect match.</p>
         </div>
-    </div>
-    </div></section>
+    </header>
+
+    <!-- Quiz Section -->
+
+    <section class="quiz-section">
+        <div class="container" style="max-width:960px">
+
+            <!-- Questions -->
+            <div class="quiz-card" id="quizCard">
+                <div class="quiz-progress"><span id="bar"></span></div>
+                <div class="d-flex justify-content-between align-items-center mt-4">
+                    <p class="eyebrow mb-0" id="step"></p>
+                    <button class="quiz-back" id="back" type="button" hidden><i
+                            class="bi bi-arrow-left me-1"></i>Back</button>
+                </div>
+                <h2 class="section-title my-4" id="question" aria-live="polite"></h2>
+                <div class="d-grid gap-2" id="options"></div>
+            </div>
+
+            <!-- Result -->
+            <div class="d-none" id="resultCard">
+                <div class="row g-0 result-card">
+                    <div class="col-md-6"><img id="rImg" class="result-img" alt=""></div>
+                    <div class="col-md-6 result-body">
+                        <p class="eyebrow">Your signature scent</p>
+                        <h2 class="section-title" id="rName"></h2>
+                        <p class="result-tag" id="rTag"></p>
+                        <p class="text-muted-ambre" id="rDesc"></p>
+                        <div class="note-pills" id="rNotes"></div>
+                        <p class="price mt-3 mb-3" id="rPrice"></p>
+                        <button class="btn btn-ambre w-100 add-to-cart"><i class="bi bi-bag me-2"></i>Add to
+                            cart</button>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a href="shop.html" class="link-underline-ambre">Browse all fragrances</a>
+                            <button class="quiz-back" id="retake" type="button">Retake quiz</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="runner-up" id="runnerUp"></div>
+            </div>
+
+        </div>
+    </section>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-    const Q = [
-        { q: 'Pick a moment you would love to wear it.', a: [['Sunset on a terrace','golden-veil'],['A candlelit dinner','velvet-nuit'],['A walk through a garden','ivory-bloom'],['A swim before lunch','soleil-dor']] },
-        { q: 'Which description sounds most like you?', a: [['Warm and magnetic','golden-veil'],['Bold and mysterious','velvet-nuit'],['Soft and romantic','ivory-bloom'],['Bright and energetic','soleil-dor']] },
-        { q: 'Choose a place to escape to.', a: [['Ancient stone ruins','golden-veil'],['A velvet-lined bar','velvet-nuit'],['A blooming courtyard','ivory-bloom'],['An orange grove','soleil-dor']] }
-    ];
-    let i = 0, score = {};
-    const $ = id => document.getElementById(id);
-    function show() {
-        $('step').textContent = `Question ${i + 1} of ${Q.length}`;
-        $('question').textContent = Q[i].q;
-        $('bar').style.width = (i / Q.length * 100) + '%';
-        $('options').innerHTML = Q[i].a.map(([t, id]) => `<button class="quiz-opt" data-id="${id}">${t}</button>`).join('');
-    }
-    $('options').addEventListener('click', e => {
-        const b = e.target.closest('.quiz-opt'); if (!b) return;
-        score[b.dataset.id] = (score[b.dataset.id] || 0) + 1;
-        if (++i < Q.length) return show();
-        const win = Object.keys(score).sort((a, b) => score[b] - score[a])[0];
-        const p = PRODUCTS.find(x => x.id === win);
-        $('rName').textContent = p.name; $('rImg').src = p.img; $('rNotes').textContent = p.notes + ' · $' + p.price;
-        $('quizCard').classList.add('d-none'); $('resultCard').classList.remove('d-none');
-    });
-    $('retake').addEventListener('click', () => { i = 0; score = {}; $('resultCard').classList.add('d-none'); $('quizCard').classList.remove('d-none'); show(); });
-    show();
+        // ---- Scents ----
+        const SCENTS = {
+            golden: {
+                name: 'Golden Veil', img: 'images/golden-veil.jpg', price: 78, tag: 'Warm, glowing, quietly magnetic.',
+                desc: 'Sun-warmed amber wrapped in vanilla and creamy sandalwood. A fragrance that feels like golden hour on stone terraces.',
+                notes: ['Amber', 'Vanilla', 'Sandalwood'], filter: 'warm'
+            },
+            velvet: {
+                name: 'Velvet Nuit', img: 'images/velvet-nuit.jpg', price: 78, tag: 'Dark, rich, unforgettable.',
+                desc: 'Dark cherry and soft musk over deep oud. Made for candlelit rooms, red roses and long evenings.',
+                notes: ['Dark Cherry', 'Musk', 'Oud'], filter: 'dark'
+            },
+            ivory: {
+                name: 'Ivory Bloom', img: 'images/ivory-bloom.jpg', price: 78, tag: 'Soft, romantic, effortless.',
+                desc: 'White jasmine and rose resting on a bed of soft amber. Gentle, graceful and quietly romantic.',
+                notes: ['Jasmine', 'Rose', 'Soft Amber'], filter: 'floral'
+            },
+            soleil: {
+                name: "Soleil D\u2019Or", img: 'images/soleil-dor.jpg', price: 78, tag: 'Bright, radiant, uplifting.',
+                desc: 'Sparkling citrus and neroli melting into warm vanilla. Sunshine on the water, in a bottle.',
+                notes: ['Citrus', 'Neroli', 'Vanilla'], filter: 'fresh'
+            }
+        };
+
+        // Each option: [label, primary scent (2 pts), secondary scent (1 pt)]
+        const QUESTIONS = [
+            {
+                q: 'Pick a moment you would love to wear it.', opts: [
+                    ['Sunset on a terrace', 'golden', 'ivory'], ['A candlelit dinner', 'velvet', 'golden'],
+                    ['A walk through a garden', 'ivory', 'soleil'], ['A swim before lunch', 'soleil', 'ivory']]
+            },
+            {
+                q: 'Which word sounds most like you?', opts: [
+                    ['Magnetic', 'golden', 'velvet'], ['Mysterious', 'velvet', 'golden'],
+                    ['Romantic', 'ivory', 'velvet'], ['Radiant', 'soleil', 'golden']]
+            },
+            {
+                q: 'Choose a place to escape to.', opts: [
+                    ['Ancient stone ruins', 'golden', 'velvet'], ['A velvet-lined bar', 'velvet', 'golden'],
+                    ['A blooming courtyard', 'ivory', 'soleil'], ['An orange grove', 'soleil', 'ivory']]
+            },
+            {
+                q: 'Pick a fabric.', opts: [
+                    ['Raw silk', 'golden', 'ivory'], ['Deep velvet', 'velvet', 'golden'],
+                    ['White linen', 'ivory', 'soleil'], ['Light cotton', 'soleil', 'ivory']]
+            },
+            {
+                q: 'How would you like to be remembered?', opts: [
+                    ['Warm and comforting', 'golden', 'ivory'], ['Bold and unforgettable', 'velvet', 'golden'],
+                    ['Soft and tender', 'ivory', 'soleil'], ['Bright and uplifting', 'soleil', 'golden']]
+            }
+        ];
+
+        const $ = id => document.getElementById(id);
+        let step = 0;
+        let answers = [];
+
+        function show() {
+            $('step').textContent = `Question ${step + 1} of ${QUESTIONS.length}`;
+            $('question').textContent = QUESTIONS[step].q;
+            $('bar').style.width = (step / QUESTIONS.length * 100) + '%';
+            $('back').hidden = step === 0;
+            $('options').innerHTML = QUESTIONS[step].opts.map((o, i) =>
+                `<button type="button" class="quiz-opt${answers[step] === i ? ' selected' : ''}" data-i="${i}">${o[0]}</button>`).join('');
+        }
+
+        function result() {
+            const score = { golden: 0, velvet: 0, ivory: 0, soleil: 0 };
+            answers.forEach((a, qi) => {
+                const [, p, s] = QUESTIONS[qi].opts[a];
+                score[p] += 2 + (qi === 0 ? 0.1 : 0);   // first answer breaks ties
+                score[s] += 1;
+            });
+            const ranked = Object.keys(score).sort((a, b) => score[b] - score[a]);
+            const top = SCENTS[ranked[0]], next = SCENTS[ranked[1]];
+
+            $('rName').textContent = top.name;
+            $('rImg').src = top.img; $('rImg').alt = top.name + ' eau de parfum';
+            $('rTag').textContent = top.tag;
+            $('rDesc').textContent = top.desc;
+            $('rNotes').innerHTML = top.notes.map(n => `<span>${n}</span>`).join('');
+            $('rPrice').textContent = `$${top.price} · 50 ml eau de parfum`;
+            $('runnerUp').innerHTML = `
+      <img src="${next.img}" alt="">
+      <div><p class="eyebrow mb-1">Also consider</p>
+      <h3>${next.name}</h3><p class="notes mb-0">${next.notes.join(' · ')}</p></div>
+      <a class="link-underline-ambre ms-auto" href="shop.html?tag=${next.filter}">View</a>`;
+
+            $('bar').style.width = '100%';
+            $('quizCard').classList.add('d-none');
+            $('resultCard').classList.remove('d-none');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        $('options').addEventListener('click', e => {
+            const b = e.target.closest('.quiz-opt'); if (!b) return;
+            answers[step] = +b.dataset.i;
+            b.parentNode.querySelectorAll('.quiz-opt').forEach(x => x.classList.toggle('selected', x === b));
+            setTimeout(() => { step < QUESTIONS.length - 1 ? (step++, show()) : result(); }, 220);
+        });
+        $('back').addEventListener('click', () => { if (step > 0) { step--; show(); } });
+        $('retake').addEventListener('click', () => {
+            step = 0; answers = [];
+            $('resultCard').classList.add('d-none'); $('quizCard').classList.remove('d-none'); show();
+        });
+        show();
     </script>
 </body>
+
 </html>
